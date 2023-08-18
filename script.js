@@ -3,12 +3,19 @@ function getDiscountValue() {
     const totalPriceText = totalPriceValue.value;
     const totalPrice = parseFloat(totalPriceText);
     totalPriceValue.value = "";
-
+    if(isNaN(totalPrice)){
+        alert('Please provide valid number');
+        return;
+    }
+    
     const totalDiscountValue = document.getElementById('discount-span');
     const totalDiscountText = totalDiscountValue.value;
     const discountAmount = parseFloat(totalDiscountText);
     totalDiscountValue.value = "";
-
+    if(isNaN(discountAmount)){
+        alert('Please provide valid number');
+        return;
+    }
     const totalPayAmount = totalPrice - (totalPrice * (discountAmount / 100));
 
     const payAmount = document.getElementById('pay-span');
